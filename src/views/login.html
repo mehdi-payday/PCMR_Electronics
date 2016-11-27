@@ -1,0 +1,22 @@
+<br>
+<div layout="row" layout-align="center center">
+    <md-content class="md-no-momentum demo-container md-whiteframe-z1"  flex-gt-sm="35" flex-sm ="95" layout-padding>
+        <form name="loginForm" method="post" ng-cloak>
+            <md-input-container class="md-block">
+                <label>Username</label>
+                <input ng-model="user.username" type="text" ng-required="true">
+            </md-input-container>
+
+            <md-input-container md-icon-float class="md-block">
+                <label>Password</label>
+                <input ng-model="user.password" type="password" ng-required="true">
+            </md-input-container>
+            <md-content layout="column"  layout-align=" stretch" class="md-block">
+                <md-button class="md-raised md-primary" id="btn-register" ng-click="login(user)">Login</md-button>
+            </md-content>
+            <md-input-container md-icon-float class="md-block">
+                <a ui-sref="register">Create new account!</a>
+            </md-input-container>
+        </form>
+    </md-content>
+</div>

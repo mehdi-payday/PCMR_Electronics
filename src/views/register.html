@@ -1,0 +1,46 @@
+<br>
+<div layout="row" layout-align="center center">
+    <md-content class="md-no-momentum demo-container md-whiteframe-z1" flex-gt-sm="35" flex-sm ="95" layout-padding>
+        <form name="registerForm" ng-cloak>
+            <md-input-container class="md-icon-float md-block">
+                <label>First name</label>
+                <input ng-model="user.firstname" type="text" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Last name</label>
+                <input ng-model="user.lastname" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Username</label>
+                <input ng-model="user.username" name="username"type="text" ng-required="true">
+                <div class="msg-block msg-error" ng-show="registerForm.username.$touched && registerForm.username.$invalid">A username is required</div>
+            </md-input-container>
+
+            <md-input-container md-icon-float class="md-block">
+                <label>Phone</label>
+                <input ng-model="user.phone" type="text">
+            </md-input-container>
+
+            <md-input-container class="md-block" >
+                <label>Email (required) </label>
+                <input ng-model="user.email" name="email" type="email" ng-required="true">
+                <div class="msg-block msg-error" ng-show="registerForm.email.$touched && registerForm.email.$invalid">Not a valid email</div>
+            </md-input-container>
+            <md-input-container md-icon-float class="md-block">
+                <label>Address</label>
+                <input ng-model="user.address" type="text">
+            </md-input-container>
+            <md-input-container md-icon-float class="md-block">
+                <label>Password</label>
+                <input ng-model="user.password" type="password" name="password1" id="password1" ng-required="true">
+                <div class="msg-block msg-error" ng-show="registerForm.password1.$touched && registerForm.password1.$invalid">A password is required</div>
+            </md-input-container>
+            <md-content layout="column"  layout-align=" stretch" class="md-block">
+                <md-button class="md-raised md-primary" id="btn-register" ng-click="registerForm.$valid && register(user)">Register</md-button>
+            </md-content>
+            <md-input-container md-icon-float class="md-block">
+                <a ui-sref="login">Already a member? Log in!</a>
+            </md-input-container>
+        </form>
+    </md-content>
+</div>

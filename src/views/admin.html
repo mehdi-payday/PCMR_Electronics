@@ -1,0 +1,24 @@
+<md-content style="top:-1" layout-fill  ng-controller="productController">
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" layout-fill md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Admin panel</h1>
+        </md-toolbar>
+        <md-subheader>Management</md-subheader>
+        <md-list>
+            <md-item>
+                <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset" ng-click="showAdd()">Add new product</div>
+                    </md-item-content>
+                </a>
+            </md-item>
+            <md-item>
+                <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">Sales report </div>
+                    </md-item-content>
+                </a>
+            </md-item>
+        </md-list>
+    </md-sidenav>
+</md-content>

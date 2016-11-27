@@ -1,0 +1,91 @@
+<md-content layout-margin ng-controller="productController">
+    <md-list class="md-padding"  ng-cloak>
+        <md-subheader class="md-no-sticky">Items in your cart</md-subheader>
+        <md-list-item ng-repeat="item in cart track by $index" ng-click="goToPerson(person.name, $event)" class="noright">
+            <img alt="{{ item.name }}" ng-src="{{ item.imageUrl }}" class="md-avatar" />
+            <p>{{ item.name }} {{item.price | currency}}</p>
+            <md-button class="md-raised md-accent" id="btn-delete" ng-click="removeFromCart($index)">Remove</md-button>
+        </md-list-item>
+        <md-divider></md-divider>
+        <br>
+        <md-list-item>
+            <p class="price-color">Total: {{total | currency}}</p>
+        </md-list-item>
+    </md-list>
+    <md-divider></md-divider>
+    <md-content layout-padding>
+        <h4>User information</h4>
+            <md-input-container class="md-icon-float md-block">
+                <label>First name</label>
+                <input ng-model="currentUser.firstname" type="text" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Last name</label>
+                <input ng-model="currentUser.lastname" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Username</label>
+                <input ng-model="currentUser.username" name="username"type="text" ng-required="true">
+                <div class="msg-block msg-error" ng-show="registerForm.username.$touched && registerForm.username.$invalid">This field is required.</div>
+            </md-input-container>
+
+            <md-input-container md-icon-float class="md-block">
+                <label>Phone</label>
+                <input ng-model="currentUser.phone" type="text">
+            </md-input-container>
+
+            <md-input-container class="md-block" >
+                <label>Email (required) </label>
+                <input ng-model="currentUser.email" name="email" type="email" ng-required="true">
+                <div class="msg-block msg-error" ng-show="registerForm.email.$touched && registerForm.email.$invalid">Not a valid email</div>
+            </md-input-container>
+            <md-input-container md-icon-float class="md-block">
+                <label>Address</label>
+                <input ng-model="currentUser.address" type="text">
+            </md-input-container>
+            <md-divider></md-divider>
+            <h5>Payment</h5>
+            <p><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppppcmcvdam.png" alt="Credit Card Badges"></p>
+            <div>
+                <md-tabs md-border-bottom md-dynamic-height>
+                    <md-tab label="Credit card">
+                        <div layout="column" flex="20">
+                            <br>
+                            <md-input-container class="md-block" >
+                                <label>Credit card number</label>
+                                <input ng-model="creditCard.cardNumber" pattern="^(5018|5020|5038|6304|6759|6761|6763)[0-9]{8,15}$" name="cardNumber" type="text" ng-required="true">
+                            </md-input-container>
+                            <md-input-container class="md-block" >
+                                <label>	Cardholder's Name</label>
+                                <input ng-model="creditCard.cardHolder" name="cardHolder"type="text" ng-required="true">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex="20">
+                                <label>Expiration date</label>
+                                <input ng-model="creditCard.cardExperationDate" name="cardExperationDate"type="text" ng-required="true">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex="20">
+                                <label>CVC</label>
+                                <input ng-model="creditCard.cardCVC" maxlength="3" name="username"type="text" ng-required="true">
+                            </md-input-container>
+                        </div>
+                    </md-tab>
+                    <md-tab label="Paypal">
+                        <div style="">
+                            <h4>
+                                Click on the button below to checkout with paypal. You will redirected to paypal to completed the transaction.
+                            </h4>
+                            <md-button>
+                                <img src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png" alt="PayPal Checkout">
+                            </md-button>
+                        </div>
+                    </md-tab>
+                </md-tas>
+
+            </div>
+            <md-content layout="column"  layout-align=" stretch" class="md-block">
+                <p class="price-color">Total: {{total | currency}}</p>
+                <md-button class="md-raised md-primary" id="btn-register" ng-click="registerForm.$valid && placerOrder()">Placer Order</md-button>
+            </md-content>
+    </md-content>
+
+</md-content>

@@ -1,0 +1,16 @@
+<md-content>
+    <md-list class="md-padding" ng-controller="productController" ng-cloak>
+        <md-subheader class="md-no-sticky">Items in your cart</md-subheader>
+        <md-list-item ng-repeat="item in cart track by $index" ng-click="goToPerson(person.name, $event)" class="noright">
+            <img alt="{{ item.name }}" ng-src="{{ item.imageUrl }}" class="md-avatar" />
+            <p>{{ item.name }} {{item.price | currency}}</p>
+            <md-button class="md-raised md-accent" id="btn-delete" ng-click="removeFromCart($index)">Remove</md-button>
+        </md-list-item>
+        <md-divider></md-divider>
+        <br>
+        <md-list-item>
+            <p class="price-color">Total: {{total | currency}}</p>
+            <md-button class="md-raised md-primary" id="btn-edit" ui-sref="checkout">Checkout</md-button>
+        </md-list-item>
+    </md-list>
+</md-content>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Angular Material Dependencies -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js" charset="utf-8"></script>
+    <script src="node_modules/angular-local-storage.min.js"></script>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-material-icons/angular-material-icons.js"></script>
+
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <!-- loading-bar -->
+    <script src="node_modules/angular-loading-bar/build/loading-bar.js"></script>
+    <link rel="stylesheet" href="node_modules/angular-loading-bar/build/loading-bar.css">
+    <!--Angular Toastr-->
+    <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css"/>
+    <!-- Applications js files -->
+    <script src="src/app.js"></script>
+    <script src="src/controllers.js"></script>
+    <script src="src/routes.js"></script>
+
+    <link rel="stylesheet" href="static/css/navbar.css" media="screen">
+
+    <title>PCMR Electronics</title>
+</head>
+<body ng-app="myApp" ng-controller="productController">
+    <div ng-include="'navbar.html'"></div>
+    <ui-view class="fade background-grey"></ui-view>
+</body>
+</html>

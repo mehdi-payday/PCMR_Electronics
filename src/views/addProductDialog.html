@@ -1,0 +1,38 @@
+<md-dialog aria-label="Add image Dialog" ng-controller="productController">
+    <md-content class="md-padding">
+        <h3>Add new product</h3>
+        <form name="addProductForm" layout="column" enctype="multipart/form-data">
+            <md-input-container flex>
+                <label>Name</label>
+                <input ng-model="newProduct.name" ng-required="true" md-autofocus>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Description</label>
+                <textarea ng-model="newProduct.description" columns="1" md-maxlength="150"></textarea>
+            </md-input-container>
+            <md-input-container flex>
+                <label>price</label>
+                <input ng-model="newProduct.price" type="number" ng-required="true">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Product image(url)</label>
+                <input ng-model="newProduct.imageUrl" ng-required="true">
+            </md-input-container>
+            <div flex>
+                <md-input-container flex>
+                    <label>Brand</label>
+                    <input ng-model="newProduct.specs.brand" ng-required="true">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Color</label>
+                    <input ng-model="newProduct.specs.color" ng-required="true">
+                </md-input-container>
+            </div>
+            <md-dialog-actions layout="row">
+                <span flex></span>
+                <md-button class="md-raised md-accent"  id="btn-cancel" ng-click="close()"> Cancel </md-button>
+                <md-button class="md-raised md-primary" id="btn-register" ng-click="addnewProduct(newProduct)">Save</md-button>
+            </md-dialog-actions>
+        </md-content>
+    </form>
+</md-dialog>

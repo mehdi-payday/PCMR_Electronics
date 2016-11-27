@@ -1,0 +1,22 @@
+<md-card ng-controller="productController" layout-align="center" flex>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{product.name}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="column" layout-align="space-between">
+        <img ng-src="{{product.imageUrl}}" style="width:100%;" alt="">
+        <md-divider></md-divider>
+        <br>
+        <md-card-actions layout="column">
+            <ul>
+                <li class="price-color">Price : {{product.price | currency}}</li>
+                <li>Description: {{product.description}}</li>
+                <li ng-repeat="(key, value) in product.specs">
+                    <span> {{key | capitalize}} : {{value}}</span>
+                </li>
+            </ul>
+            <md-button class="md-raised md-primary" id="btn-edit" ng-click="addToCart(product)">Add to card</md-button>
+        </md-card-actions>
+    </md-card-content>
+</md-card>

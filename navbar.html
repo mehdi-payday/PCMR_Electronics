@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">PCMR Electronics</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a ui-sref="home">Products</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="about">About</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="isAuthenticated" ui-sref-active="active">
+                    <a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                </li>
+                <li ng-hide="isAuthenticated" ui-sref-active="active">
+                    <a ui-sref="register"><span class="glyphicon glyphicon-log-in"></span> Register</a>
+                </li>
+                <li ng-show="isAuthenticated" class="dropdown" ui-sref-active="active">
+                    <a ng-click="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{currentUser.username}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-show="currentUser.isAdmin"><a ui-sref="admin">Admin area</a></li>
+                        <li ng-show="currentUser.isAdmin"role="separator" class="divider"></li>
+                        <li><a ng-click="logout()">Logout</a></li>
+                    </ul>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="cart"><span class="glyphicon glyphicon-shopping-cart"></span> {{cart.length}} items</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
