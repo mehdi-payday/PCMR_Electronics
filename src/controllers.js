@@ -47,4 +47,20 @@ app.controller('productController',function($scope, $location, $rootScope, $wind
         var tmpUrl = "src/views/addProductDialog.html";
         NotificationsFactory.showDialog($event, tmpUrl);
     };
+    $scope.download = function download() {
+        var filename = "rapport.txt";
+        var text = "Nombre de visites : 1 \r\n"
+        +"Nombre de ventes : 0 \r\n"
+        +"Revenu total : 0.00$";
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
 });
